@@ -45,7 +45,6 @@ function newGame () {
          playerScore = 0;
          computerScore = 0;
          ties = 0;
-         games = 0;
          score.textContent = `Player: ${playerScore} Computer: ${computerScore} Ties: ${ties}`;
  
          buttons.forEach((button) => {
@@ -61,7 +60,6 @@ let result;
 let playerScore = 0;
 let computerScore = 0;
 let ties = 0;
-let games = 0;
 
 const score = document.getElementById("score");
 const game = document.querySelector("#game");
@@ -76,18 +74,15 @@ buttons.forEach((button) => {
 
     if (result.includes("Win")) {
         playerScore++;
-        games++;
     } else if (result.includes("Lose")) {
         computerScore++;
-        games++;
     } else {
         ties++;
-        games++;
     }
 
     score.textContent = `Player: ${playerScore} Computer: ${computerScore} Ties: ${ties}`;
 
-    if (playerScore === 3 || computerScore === 3 || games === 5) {
+    if (playerScore === 3 || computerScore === 3 || ties === 3) {
 
         if (playerScore === 3) {
             verdict.textContent = "Congratulations! You beat the computer in this best of 5!";
@@ -108,6 +103,7 @@ buttons.forEach((button) => {
     });
 });
 
+// Old game code from when game was played in the console
 /* function game() {
     let playerSelection;
     let computerSelection;
