@@ -32,9 +32,10 @@ if (playerSelection === "rock" && computerSelection === "paper") {
 let result;
 let playerScore = 0;
 let computerScore = 0;
+let ties = 0;
 const score = document.getElementById("score");
 
-const buttons = document.querySelectorAll('button');
+const buttons = document.querySelectorAll("button");
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
     result = playRound(button.id, computerPlay());
@@ -43,9 +44,9 @@ buttons.forEach((button) => {
         playerScore++;
     } else if (result.includes("Lose")) {
         computerScore++;
-    }
+    } else {ties++;}
 
-    score.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
+    score.textContent = `Player: ${playerScore} Computer: ${computerScore} Ties: ${ties}`;
     console.log(`Player: ${playerScore} Computer: ${computerScore}`);
 
     if (playerScore === 3 || computerScore === 3) {
@@ -55,12 +56,27 @@ buttons.forEach((button) => {
         if (playerScore > computerScore) {
             verdict.textContent = "Congratulations! You beat the computer in this best of 5!";
             game.appendChild(verdict);
+            
+            buttons.forEach((button) => {
+                button.disabled = true;
+            })
+
         } else if (playerScore < computerScore) {
             verdict.textContent = "Too bad, you lost to the computer in this best of 5!"; 
             game.appendChild(verdict);
+
+            buttons.forEach((button) => {
+                button.disabled = true;
+            })
+
         } else {
             verdict.textContent = "This best of 5 is a tie!";
             game.appendChild(verdict);
+
+            buttons.forEach((button) => {
+                button.disabled = true;
+            })
+            
         }
     }
     });
