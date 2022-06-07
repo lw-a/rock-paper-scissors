@@ -33,7 +33,6 @@ function gameOver () {
     buttons.forEach((button) => {
         button.disabled = true;
     })
-
 newGame();
 }
 
@@ -52,11 +51,9 @@ function newGame () {
          buttons.forEach((button) => {
              button.disabled = false;
          })
-
          game.removeChild(verdict);
          game.removeChild(newGame);
      })
- 
     game.appendChild(newGame);
 }
 
@@ -65,9 +62,9 @@ let playerScore = 0;
 let computerScore = 0;
 let ties = 0;
 let games = 0;
+
 const score = document.getElementById("score");
 const game = document.querySelector("#game");
-
 const verdict = document.createElement("div");
 verdict.classList.add("verdict");
 verdict.style.padding = "10px";
@@ -92,25 +89,20 @@ buttons.forEach((button) => {
 
     if (playerScore === 3 || computerScore === 3 || games === 5) {
 
-
         if (playerScore === 3) {
             verdict.textContent = "Congratulations! You beat the computer in this best of 5!";
             game.appendChild(verdict);
-            
             gameOver();
 
         } else if (computerScore === 3) {
             verdict.textContent = "Too bad, you lost to the computer in this best of 5!"; 
             game.appendChild(verdict);
-
             gameOver();
 
         } else {
             verdict.textContent = "This best of 5 is a tie!";
             game.appendChild(verdict);
-
             gameOver();
-
         }
     }
     });

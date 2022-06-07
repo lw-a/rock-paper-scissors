@@ -1,3 +1,3 @@
 # rock-paper-scissors
 
-Simple Rock, Paper, Scissors game made in JS with results being printed in the console.
+Best of 5 Rock, Paper, Scissors game created in JS with a simple UI.
